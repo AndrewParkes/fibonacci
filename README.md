@@ -1,6 +1,7 @@
-# fibonacci
+# Fibonacci
 
-Just a few different ways of getting a Fibonacci number by its position
+Just a few different ways of getting a Fibonacci number by its position.
+Done to learn basics of Golang
 
 1) Basic recursive function
 2) Recursive with GoRoutines
