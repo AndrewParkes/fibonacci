@@ -1,4 +1,4 @@
-# fibonacci
+# Fibonacci
 
 Just a few different ways of getting a Fibonacci number by its position
 
