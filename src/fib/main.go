@@ -8,7 +8,7 @@ import (
 func main() {
 	start := time.Now()
 
-	fmt.Println("fib:", fib(30))
+	fmt.Println("fib:", fib(50))
 
 	duration := time.Since(start)
 	fmt.Println("Nanoseconds:", duration.Nanoseconds())

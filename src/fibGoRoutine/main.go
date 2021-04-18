@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"time"
 )
 
 func main() {
-	runtime.GOMAXPROCS(10)
 	start := time.Now()
 
-	fmt.Println("fib:", fib(5))
+	fmt.Println("fib:", fib(50))
 
 	duration := time.Since(start)
 	fmt.Println("Nanoseconds:", duration.Nanoseconds())
@@ -19,13 +17,13 @@ func main() {
 func fib(n int) int {
 
 	channel:= make(chan int)
-	go fibCo(n, channel)
+	go fibChannel(n, channel)
 	val :=	<-channel
 
 	return  val
 }
 
-func fibCo(n int, channel chan int){
+func fibChannel(n int, channel chan int){
 
 	if n == 1 {
 		channel <- 1
@@ -36,8 +34,8 @@ func fibCo(n int, channel chan int){
 		channel1 := make(chan int)
 		channel2 := make(chan int)
 
-		go fibCo(n-1, channel1)
-		go fibCo(n-2, channel2)
+		go fibChannel(n-1, channel1)
+		go fibChannel(n-2, channel2)
 
 		val := <- channel1 + <- channel2
 
